@@ -2,7 +2,8 @@
 resource "aws_vpc" "dev-vpc" {
   cidr_block = "10.0.0.0/16"
   tags = {
-    Name = "development"
+    Name = "development",
+    Terraform = "true"
   }
 }
 
@@ -15,7 +16,8 @@ resource "aws_subnet" "dev1-subnet" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "dev1-subnet"
+    Name = "dev1-subnet",
+    Terraform = "true"
   }
 }
 
@@ -26,7 +28,8 @@ resource "aws_subnet" "dev2-subnet" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "dev2-subnet"
+    Name = "dev2-subnet",
+    Terraform = "true"
   }
 }
 
@@ -35,7 +38,8 @@ resource "aws_internet_gateway" "dev-gw" {
   vpc_id = aws_vpc.dev-vpc.id
 
   tags = {
-    Name = "dev-gw"
+    Name = "dev-gw",
+    Terraform = "true"
   }
 }
 
@@ -55,7 +59,8 @@ resource "aws_route_table" "dev-route-table" {
   
 
   tags = {
-    Name = "dev-rt"
+    Name = "dev-rt",
+    Terraform = "true"
   }
 }
 
@@ -111,6 +116,7 @@ resource "aws_security_group" "allow-web-traffic" {
     }
 
   tags = {
-    Name = "allow-web"
+    Name = "allow-web",
+    Terraform = "true"
   }
 }

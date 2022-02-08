@@ -1,5 +1,6 @@
-# *[Em Desenvolvimento]*
-# Terraform para criação de cluster K8s
+*[Em Desenvolvimento]*
+---
+# Terraform para criação de Instancia na AWS
 
 Esse repo contém o script [Terraform](https://www.terraform.io/) para criação de um servidor, firewall na [AWS](https://aws.amazon.com) e VPC.
 

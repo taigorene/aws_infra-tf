@@ -1,6 +1,19 @@
-variable "aws_user_id" {}
+variable "aws_access_key" {
+  description = "AWS Access Key"
+}
 
-variable "aws_user_token" {}
+variable "aws_secret_key" {
+  description = "AWS Secret Key"
+}
+
+variable "ssh_key_name" {
+  description = "Nome do key pair"
+  default = "ec2_ssh_key"
+}
+
+variable "ssh_public_key" {
+  description = "Public Key"
+}
 
 variable "aws_region" {
   type        = string

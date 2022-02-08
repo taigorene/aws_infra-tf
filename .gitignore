@@ -1,5 +1,3 @@
 .terraform.*
 terraform.*
 .terraform/
-dash_token
-tmp_k8pv/
