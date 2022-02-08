@@ -33,6 +33,29 @@ resource "aws_subnet" "dev2-subnet" {
   }
 }
 
+# Create a NIC(s)
+resource "aws_network_interface" "dev-server-nic" {
+  subnet_id       = aws_subnet.dev1-subnet.id
+  private_ips     = ["10.0.1.50"]
+  security_groups = [aws_security_group.allow-web-traffic.id]
+  tags = {
+      Name = "ServerNIC"
+      Terraform = "true"
+  }
+}
+
+# Create Elastic IP
+resource "aws_eip" "one" {
+  vpc                       = true
+  network_interface         = aws_network_interface.dev-server-nic.id
+  associate_with_private_ip = "10.0.1.50"
+  depends_on = [aws_internet_gateway.dev-gw]
+  tags = {
+      Name = "ServerNIC"
+      Terraform = "true"
+  }
+}
+
 # Create Internet Gateway
 resource "aws_internet_gateway" "dev-gw" {
   vpc_id = aws_vpc.dev-vpc.id
@@ -70,7 +93,7 @@ resource "aws_route_table_association" "dev1-sub-to-dev-rt" {
   route_table_id = aws_route_table.dev-route-table.id
 }
 
-# Create Route Table Association for dev1-subnet to dev-rt
+# Create Route Table Association for dev2-subnet to dev-rt
 resource "aws_route_table_association" "dev2-sub-to-dev-rt" {
   subnet_id      = aws_subnet.dev2-subnet.id
   route_table_id = aws_route_table.dev-route-table.id

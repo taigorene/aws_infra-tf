@@ -26,9 +26,15 @@ resource "aws_instance" "ec2_instance" {
   availability_zone = var.aws_az1
   key_name = aws_key_pair.ec2_key_pair.key_name
 
-  subnet_id = aws_subnet.dev1-subnet.id
-  security_groups = [aws_security_group.allow-web-traffic.id]
-  associate_public_ip_address = true
+  network_interface {
+    network_interface_id = aws_network_interface.dev-server-nic.id
+    device_index = 0
+    delete_on_termination = false
+  }
+  ## Como estamos usando network interface, essas configurações abaixo não são necessárias e devem ser adicionadas na configuração da Network interface.
+  # subnet_id = aws_subnet.dev1-subnet.id
+  # security_groups = [aws_security_group.allow-web-traffic.id]
+  # associate_public_ip_address = true
 
   root_block_device {
     volume_size = 10 #GiB
