@@ -8,7 +8,7 @@ variable "aws_secret_key" {
 
 variable "ssh_key_name" {
   description = "Nome do key pair"
-  default = "ec2_ssh_key"
+  default     = "ec2_ssh_key"
 }
 
 variable "ssh_public_key" {
@@ -18,17 +18,17 @@ variable "ssh_public_key" {
 variable "aws_region" {
   type        = string
   description = "Região onde será criado o cluster"
-  default = "sa-east-1"
+  default     = "sa-east-1"
 }
 
 variable "aws_az1" {
   type        = string
   description = "AZ onde será criado o cluster"
-  default = "sa-east-1a"
+  default     = "sa-east-1a"
 }
 
 variable "aws_az2" {
   type        = string
   description = "AZ onde será criado o cluster"
-  default = "sa-east-1b"
+  default     = "sa-east-1b"
 }
