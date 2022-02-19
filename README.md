@@ -16,5 +16,19 @@ aws_secret_key = ""
 ```
 > Incluir também outras variaveis que achar importante no arquivo acima.
 
+## Como usar
+
+Clone o repo:
+```
+# git clone hhttps://github.com/taigorene/aws_infra-tf.git
+```
+
+Configure as variáveis como citado em [Notas](#notas), e então basta executar os comandos:
+```
+# terraform init
+
+# terraform apply
+```
+
 ## Maintainer
 Mantido por [Taígo](https://github.com/taigorene).
