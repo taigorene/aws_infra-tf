@@ -1,5 +1,3 @@
-*[Em Desenvolvimento]*
----
 # Terraform para criação de Instancia na AWS
 
 Esse repo contém o script [Terraform](https://www.terraform.io/) para criação de um servidor, firewall na [AWS](https://aws.amazon.com) e VPC.
@@ -13,6 +11,7 @@ Nome: `terraform.tfvars`.
 ```
 aws_access_key = ""
 aws_secret_key = ""
+ssh_public_key = ""
 ```
 > Incluir também outras variaveis que achar importante no arquivo acima.
 
@@ -20,7 +19,7 @@ aws_secret_key = ""
 
 Clone o repo:
 ```
-# git clone hhttps://github.com/taigorene/aws_infra-tf.git
+# git clone https://github.com/taigorene/aws_infra-tf.git
 ```
 
 Configure as variáveis como citado em [Notas](#notas), e então basta executar os comandos:
